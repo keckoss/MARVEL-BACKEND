@@ -283,7 +283,7 @@ router.get("/favorisids", async (req, res) => {
     // Renvoyez les IDs des favoris de l'utilisateur
     return res.json({ favorisPersonnagesIDs, favorisComicsIDs });
   } catch (error) {
-    console.error("Erreur lors de la récupération des favoris :", error);
+    console.log("Erreur lors de la récupération des favoris :", error);
     return res.status(500).json({
       message: "Une erreur est survenue lors de la récupération des favoris.",
     });
