@@ -268,14 +268,18 @@ router.get("/favorisids", async (req, res) => {
   const tokenValue = token.split(" ")[1];
 
   try {
+    console.log("je passe1");
     const user = await User.findOne({ token: tokenValue });
+    console.log("je passe1bis");
     if (!user) {
+      console.log("je passe2");
       return res.status(404).json({ message: "Utilisateur non trouvé." });
     }
-
+    console.log("je passe3");
     const favorisPersonnagesIDs = user.favorisPersonnages.map((personnage) =>
       personnage.toString()
     );
+    console.log("je passe4");
     const favorisComicsIDs = user.favorisComics.map((comic) =>
       comic.toString()
     );
